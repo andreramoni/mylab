@@ -1,2 +1,4 @@
 # mylab
-My virtual lab
+
+Networks:
+Ext: 192.168.12.0/24
