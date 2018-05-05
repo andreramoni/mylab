@@ -1,4 +1,4 @@
-# mylab
+# RLabs
 
-Networks:
-Ext: 192.168.12.0/24
+This is a project to bring a virtual datacenter up with many common services with only one command.
+
