@@ -6,6 +6,9 @@ Login and do the follow:
 - Disable firewalld
   systemctl disable firewalld
 
+- Disable Postfix
+  systemctl disable postfix
+
 - Disable SELinux
   edit /etc/selinux/config and set to disabled
 
@@ -15,11 +18,17 @@ Login and do the follow:
 - Update the system
   yum upgrade -y
 
+- Disable UseDNS on sshd
+  echo "UseDNS no" >> /etc/ssh/sshd_config
+
 - Install basic packages
+  yum install -y net-tools bind-utils git open-vm-tools bash-completion bash-completion-extras vim-enhanced telnet nc
 
+- Shutdown
+  halt
 
-
-
-
+VCENTER:
+- Poweroff the VM
+- Disconnect the cd-rom and set to client device
 - Convert it to template.
-- 
+ 
