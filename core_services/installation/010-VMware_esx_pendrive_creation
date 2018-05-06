@@ -1,0 +1,5 @@
+* Download and burn the .iso on a pendrive.
+  To burn the iso, use something like:
+  sudo dd if=/Users/ramoni/Downloads/VMware-ESXi-6.7.0-OS-Release-8169922-HPE-Gen9plus-670.10.2.0.35-Apr2018.iso of=/dev/rdisk3 bs=1m
+
+
