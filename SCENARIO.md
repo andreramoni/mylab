@@ -1,9 +1,19 @@
 
-The environment is behind a router that is connected to the Internet.<br>
-The internal network of the router is 192.168.12.0/24 and it does outgoing NAT.<br>
-The internal router IP is 192.168.12.1.<br>
+The lab environment is behind a router that is connected to the Internet.<br>
+But since it´s my own home network, we need to organize IP ranges.<br>
 
-Since THIS IS my home network, we need to organize IP ranges, put core services on it and call it the EXTERNAL NETWORK.
+Let´s call my home network as the EXT Network (or Transit network).<br>
+
+---
+EXT Network
+- Network: 192.168.12.0/24 (netmask 255.255.255.0)
+- Internet Gateway: 192.168.12.1
+- DNS used by my home devices: 1.1.1.1 and 8.8.8.8
+- DNS used by lab VMs: 192.168.
+Core Services will be addressed from 192.168.12.10 to 192.168.12.90.
+192.168.12.100-200: Can be used by the LAB VMs
+
+put core services on it and call it the EXTERNAL NETWORK.
 
 Critical services run on this network, and there are firewalls that routes traffic to internal networks inside the lab.
 
