@@ -11,7 +11,30 @@ TRANSIT Network:
 - DNS: 192.168.12.10
 
 
-All of infrastructure and core services will belong to this network.
+We´ll use this external network as follow:
 
-As follow:
+- 192.168.12.2-19: Basic services, routing and LB
+- 192.168.12.20-29: ESXi hosts
+- 192.168.12.30-49: VMware appliances
+- 192.168.12.50-69: Orquestration hosts
+- 192.168.12.100-199: "Public IPs"
 
+
+LAB core services:
+- 192.168.12.2: nsmaster.ext.lab
+- 192.168.12.5: pawin.ext.lab
+- 192.168.12.9: proxy.ext.lab
+- 192.168.12.10: fw.ext.lab
+- 192.168.12.11: fw01.ext.lab
+- 192.168.12.12: fw02.ext.lab
+- 192.168.12.21: esx01.ext.lab
+- 192.168.12.30: vcenter.ext.lab
+- 192.168.12.50: foreman.ext.lab
+
+Internal networks:
+- 10.255.0.0/16: mgmt.lab - Management and provisioning
+- 10.0.0.0/16: srv.lab - Internal services
+- 10.1.0.0/16: dmz1.lab - First DMZ network  (outside connections)
+- 10.2.0.0/16: dmz2.lab - Second DMZ network (inside scope)
+
+The firewalls will use last octect as 2 and 3, and 1 for the VIP on each network.
