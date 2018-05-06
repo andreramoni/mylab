@@ -1,0 +1,17 @@
+VCENTER:
+- Deploy a VM from CentOS7 template
+- Name it foreman.ext.lab
+- Edit the VM and set vcpus to 4 and 6Gb of ram
+- Add another NIC on mgmt network
+- Power on
+
+VM:
+- Logon onto the  vm
+- Use nmtui to configure the network as follow:
+  Static 192.168.12.50 on first network. Name it ext.
+  Static 10.255.0.254 on second network. Name it mgmt.
+  
+- Reboot
+  reboot
+
+ 
