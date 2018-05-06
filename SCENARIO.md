@@ -11,3 +11,6 @@ TRANSIT Network:
 - DNS: 1.1.1.1, 8.8.8.8
 
 
+All of infrastructure and core services will belong to this network.
+
+As follow:
