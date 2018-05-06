@@ -7,11 +7,27 @@ VCENTER:
 
 VM:
 - Logon onto the  vm
+
 - Use nmtui to configure the network as follow:
   Static 192.168.12.50 on first network. Name it ext.
   Static 10.255.0.254 on second network. Name it mgmt.
-  
+
+- Set the hostname to foreman.ext.lab
+  hostnamectl set-hostname foreman.ext.lab
+  echo "192.168.12.50 foreman.ext.lab foreman" >> /etc/hosts
+
 - Reboot
   reboot
+
+FOREMAN INSTALL:
+- Go to www.theforeman.org, click on get started and follow the steps.
+- First step is to install puppet repo
+- Second is the epel repo
+- Third is the foreman repo
+- Fourth is the foreman installer
+- Run the foreman-installer and select desired options
+  foreman-installer --foreman-admin-password adminadmin -i
+
+- Take a snapshot and name it "Foreman installed"
 
  
