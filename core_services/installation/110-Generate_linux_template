@@ -1,0 +1,21 @@
+- Install a CentOS on a VM.
+- Let the network use dhcp
+
+
+Login and do the follow:
+- Disable firewalld
+  systemctl disable firewalld
+- Disable SELinux
+  edit /etc/selinux/config and set to disabled
+- Edit /etc/hosts
+  echo "172.0.0.1 centos.localdomain centos" >> /etc/hosts
+- Update the system
+  yum upgrade -y
+- Install basic packages
+
+
+
+
+
+- Convert it to template.
+- 
