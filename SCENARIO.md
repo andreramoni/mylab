@@ -5,28 +5,20 @@ But since it´s my own home network, we need to organize IP ranges.<br>
 Let´s call my home network as the EXT Network (or Transit network).<br>
 
 ---
-EXT Network
+EXT Network (from the lab perspective)
 - Network: 192.168.12.0/24 (netmask 255.255.255.0)
 - Internet Gateway: 192.168.12.1
-- DNS used by my home devices: 1.1.1.1 and 8.8.8.8
-- DNS used by lab VMs: 192.168.
-Core Services will be addressed from 192.168.12.10 to 192.168.12.90.
-192.168.12.100-200: Can be used by the LAB VMs
+- DNS: 192.168.12.10
+- Ranges convention:
+  - 192.168.12.1-9:     reserved, not to be used
+  - 192.168.12.10-19:   ESXi hosts 
+  - 192.168.12.20-39:   VMware products
+  - 192.168.12.40-59:   Core services 
+  - 192.168.12.60-79:   Orquestration and config services 
+  - 192.168.12.100-200: Services that needs an external IP
+  - 192.168.12.201-250: My home devices using DHCP
 
-put core services on it and call it the EXTERNAL NETWORK.
 
-Critical services run on this network, and there are firewalls that routes traffic to internal networks inside the lab.
-
-So, below are the conventions for this network.
-
------
-EXT network (that is my home network used by my devices):
-- Network: 192.168.12.0/24 (255.255.255.0)
-- Internet Gateway: 192.168.12.1
-- DNS: 1.1.1.1
-- IP range convention:
-  - 192.168.12.201-250: DHCP managed by my lan/wifi access point
-  - 192.168.12.:
 
 Core services
 - 192.168.12.4  - proxy.ext.lab: Squid proxy for caching
