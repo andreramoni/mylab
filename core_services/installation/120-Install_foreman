@@ -26,7 +26,16 @@ FOREMAN INSTALL:
 - Third is the foreman repo
 - Fourth is the foreman installer
 - Run the foreman-installer and select desired options
-  foreman-installer --foreman-admin-password adminadmin -i
+  foreman-installer --foreman-admin-password adminadmin -i \
+  --enable-foreman-proxy \
+  --foreman-proxy-tftp=true \
+  --foreman-proxy-tftp-servername=10.255.0.254 \
+  --foreman-proxy-dhcp=true \
+  --foreman-proxy-dhcp-interface=ens224 \
+  --foreman-proxy-dhcp-gateway=10.255.0.1 \
+  --foreman-proxy-dhcp-nameservers="192.168.12.2" \
+  --foreman-proxy-dns=false \
+  --foreman-proxy-foreman-base-url=https://foreman.ext.lab 
 
 - Take a snapshot and name it "Foreman installed"
 
