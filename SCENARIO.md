@@ -8,7 +8,7 @@ Let´s call my home network as the TRANSIT Network.<br>
 TRANSIT Network:
 - Network: 192.168.12.0/24 (netmask 255.255.255.0)
 - Gateway: 192.168.12.1
-- DNS: 192.168.12.10
+- DNS: 192.168.12.2
 
 
 We´ll use this external network as follow:
@@ -17,7 +17,9 @@ We´ll use this external network as follow:
 - 192.168.12.20-29: ESXi hosts
 - 192.168.12.30-49: VMware appliances
 - 192.168.12.50-69: Orquestration hosts
-- 192.168.12.100-199: "Public IPs"
+- 192.168.12.100-149: "Public IPs"
+- 192.168.12.150-199: Reserved for Rlabs2
+- 192.168.12.200-254: DHCP range used by my home devices
 
 
 LAB core services:
