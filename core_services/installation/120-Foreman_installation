@@ -11,10 +11,12 @@ VM:
 - Use nmtui to configure the network as follow:
   Static 192.168.12.50 on first network. Name it ext.
   Static 10.255.0.254 on second network. Name it mgmt.
+  Set the hostname to foreman.ext.lab
 
-- Set the hostname to foreman.ext.lab
-  hostnamectl set-hostname foreman.ext.lab
+- Some manual changes:
   echo "192.168.12.50 foreman.ext.lab foreman" >> /etc/hosts
+  cd /etc/sysconfig/network-scripts ; mv ifcfg-ens192 ifcfg-ext
+
 
 - Reboot
   reboot
@@ -25,6 +27,9 @@ FOREMAN INSTALL:
 - Second is the epel repo
 - Third is the foreman repo
 - Fourth is the foreman installer
+- Run foreman-installer
+  foreman-installer --foreman-admin-password adminadmin
+
 - Run the foreman-installer and select desired options
 foreman-installer --foreman-admin-password adminadmin \
   --enable-foreman-proxy \

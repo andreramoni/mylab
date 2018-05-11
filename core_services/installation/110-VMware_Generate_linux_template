@@ -10,7 +10,7 @@ Login and do the follow:
   systemctl disable postfix
 
 - Disable SELinux
-  edit /etc/selinux/config and set to disabled
+  sed -i s/SELINUX=.*/SELINUX=disabled/ /etc/selinux/config
 
 - Edit /etc/hosts
   echo "172.0.0.1 centos.localdomain centos" >> /etc/hosts
@@ -22,10 +22,10 @@ Login and do the follow:
   echo "UseDNS no" >> /etc/ssh/sshd_config
 
 - Install basic packages
-  yum install -y net-tools bind-utils git open-vm-tools bash-completion bash-completion-extras vim-enhanced telnet nc
+  yum install -y net-tools bind-utils git open-vm-tools bash-completion bash-completion-extras vim-enhanced telnet nc wget
 
 - Shutdown
-  halt
+  sync; halt
 
 VCENTER:
 - Poweroff the VM
