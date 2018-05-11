@@ -36,7 +36,25 @@ FOREMAN INSTALL:
   (it should take around 6 minutes)
   
 - Run the foreman-installer again in interactive mode select desired options
-  foreman-installer -i
+foreman-installer --foreman-admin-password adminadmin \
+  --enable-foreman-proxy \
+  --foreman-proxy-tftp=true \
+  --foreman-proxy-tftp-servername=10.255.0.254 \
+  --foreman-proxy-dhcp=true \
+  --foreman-proxy-dhcp-interface=ens224 \
+  --foreman-proxy-dhcp-gateway=10.255.0.1 \
+  --foreman-proxy-dhcp-nameservers="192.168.12.2" \
+  --foreman-proxy-dns=false \
+  --foreman-proxy-foreman-base-url=https://foreman.ext.lab \
+  --enable-foreman-plugin-discovery \
+  --enable-foreman-proxy-plugin-discovery \
+  --foreman-proxy-plugin-discovery-install-images true \
+  --enable-foreman-compute-vmware \
+  --enable-foreman-plugin-cockpit \
+  --enable-foreman-plugin-dhcp-browser \
+  --enable-foreman-plugin-default-hostgroup \
+  --enable-foreman-plugin-remote-execution \
+  --enable-foreman-proxy-plugin-remote-execution-ssh
 
 - Take a snapshot and name it "Foreman installed"
 
