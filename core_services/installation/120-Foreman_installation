@@ -30,6 +30,7 @@ FOREMAN INSTALL:
 - Fourth is the foreman installer
 - Run foreman-installer non-interactive mode just setting the initial password
   time foreman-installer --foreman-admin-password adminadmin
+  (it should take around 6 minutes)
   
 - Run the foreman-installer again in interactive mode select desired options
   foreman-installer -i
