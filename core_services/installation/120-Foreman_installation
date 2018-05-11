@@ -13,7 +13,10 @@ VM:
   Static 10.255.0.254 on second network. Name it mgmt.
   Set the hostname to foreman.ext.lab
 
-- Some manual changes:
+- Reboot
+  reboot 
+
+- Log into the VM and apply:
   echo "192.168.12.50 foreman.ext.lab foreman" >> /etc/hosts
   cd /etc/sysconfig/network-scripts ; mv ifcfg-ens192 ifcfg-ext
 
