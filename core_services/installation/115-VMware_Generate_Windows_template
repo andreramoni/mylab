@@ -1,0 +1,12 @@
+- Install Windows on a VM.
+- Let the network use dhcp
+- Disable windows firewall
+- Enable terminal service
+- Do your desired customizations
+- Install vmwaretools
+- Download puppet agent from http://downloads.puppet.com/windows/puppet5/puppet-agent-x64-latest.msi and put it on C:\
+- Convert it to template.
+
+You dont need to activate windows
+
+ 
