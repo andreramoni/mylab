@@ -13,12 +13,12 @@ EXTERNAL/TRANSIT Network:
 
 We´ll use this external network as follow:
 
-- 192.168.12.2-19: Basic services, routing and LB
+- 192.168.12.2-19: Basic services, DNS, Jumpboxes etc 
 - 192.168.12.20-29: ESXi hosts
 - 192.168.12.30-49: VMware appliances
 - 192.168.12.50-69: Orquestration hosts
-- 192.168.12.100-149: "Public IPs"
-- 192.168.12.150-199: Reserved for Rlabs2
+- 192.168.12.100-149: Foreman provisioning
+- 192.168.12.150-199: Katello provisioning
 - 192.168.12.200-254: DHCP range used by my home devices
 
 
