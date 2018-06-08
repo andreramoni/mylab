@@ -63,16 +63,12 @@ foreman-installer --foreman-admin-password adminadmin \
 If using katello:
 foreman-installer --scenario katello \
   --foreman-admin-password adminadmin \
-  --enable-foreman-proxy \
-  --foreman-proxy-tftp=true \
-  --foreman-proxy-tftp-servername=10.255.0.254 \
-  --foreman-proxy-dhcp=true \
-  --foreman-proxy-dhcp-interface=ens224 \
-  --foreman-proxy-dhcp-gateway=10.255.0.1 \
-  --foreman-proxy-dhcp-nameservers="192.168.12.2" \
-  --foreman-proxy-dhcp-range="10.255.1.1 10.255.200.254" \
-  --foreman-proxy-dns=false \
-  --foreman-proxy-foreman-base-url=https://foreman.ext.lab \
+  --enable-foreman-plugin-setup \
+  --enable-foreman-proxy-plugin-openscap \
+  --enable-foreman-plugin-openscap \
+  --enable-foreman-proxy-plugin-ansible \
+  --enable-foreman-plugin-hooks \
+  --enable-foreman-plugin-ansible \
   --enable-foreman-plugin-discovery \
   --enable-foreman-proxy-plugin-discovery \
   --foreman-proxy-plugin-discovery-install-images true \
@@ -83,8 +79,10 @@ foreman-installer --scenario katello \
   --enable-foreman-plugin-default-hostgroup \
   --enable-foreman-plugin-remote-execution \
   --enable-foreman-proxy-plugin-remote-execution-ssh \
-  --foreman-locations-enabled=false \
-  --foreman-organizations-enabled=false
+  --foreman-initial-location HomeLab \
+  --foreman-initial-organization RLabs
+
+
 
 - Take a snapshot and name it "Foreman installed"
 
