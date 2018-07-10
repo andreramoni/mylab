@@ -1,0 +1,10 @@
+  As long as you manage your zones as code, rebuilding your servers should be very straightforward.
+  In RLabs, the authoritative servers of ext.lab are NS1 and NS2 and they are managed entirely by Puppet.
+
+  Rebuilding them is as easy as clicking on "Build" button on Foreman.
+  Do it on the node with the VIP to see how long it takes to the other node to takeover.
+  After finishing the rebuild of one server, wait until Puppet configures it and then rebuild the other.
+
+
+
+ 

@@ -1,0 +1,5 @@
+  The Image server is just an NFS server exporting a directory to be mounted as a VMware Datastore.
+  Rebuilding this server would obviously lead to Data Loss, as the HDD will be formated again.
+  What we do to reduce the impact of rebuilding this server is to make sure that, once Puppet creates the exported directory, if it´s empty, restore data from the backup server.
+
+ 
