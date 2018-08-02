@@ -131,7 +131,7 @@ Publish
 ACTIVATION KEY
 Create Activation key CentOS7
 Select Library e CV CentOS7
-
+Subscriptions: add products
 -----------------------------------------------------
 SYNC CONTENT
 Go to sync status and sync all
@@ -139,8 +139,7 @@ Go to sync status and sync all
 -----------------------------------------------------
 INSTALLATION MEDIA
 Create: CentOS7 local
-URL: http://foreman.ext.lab/pulp/repos/RLabs/Library/CentOS7/custom/CentOS/CentOS7_base/
-
+URL: http://foreman.ext.lab/pulp/repos/RLabs/Library/custom/CentOS/CentOS7_base/
 
 -----------------------------------------------------
 GLOBAL PARAMETERS
