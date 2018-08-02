@@ -1,16 +1,182 @@
+-----------------------------------------------------
 FOREMAN WEB INTERFACE:
 
+Administar -> Settings -> Puppet
+  Puppet server: foreman.ext.lab
+
+
+-----------------------------------------------------
+DOMAINS:
+Filter by any organization and configure the ext.lab domain to RLabs
+Create domain prov.lab
+
+
+-----------------------------------------------------
 NETWORKS:
+Create the EXT network:
+NAme: ext
+Address: 192.168.12.0
+Prefix: 24
+Mask: 255.255.255.0
+Gateway: 192.168.12.1
+DNS: 192.168.12.2
+IPAM: Internal DB
+From: 192.168.12.100
+To: 192.168.12.199
+MTU: 1500
+Boot mode: Static
+Domain tab: ext.lab
+
+Create the PROV network:
+Name: prov
+Address: 10.255.0.0
+Prefix: 16
+Mask: 255.255.0.0
+Gateway: 10.255.0.1
+IPAM: DHCP
+From: 10.255.10.1
+To: 10.255.100.254
+Boot mode: DHCP
+Domain tab: ext.lab
+Proxy tab: foreman.ext.lab
+
+
+-----------------------------------------------------
+PARTITION TABLES
+Import partition tables.
+Associate with CetOS operating system
+
+
+-----------------------------------------------------
+SYNC PLAN
+Create a daily sync plan
+
+-----------------------------------------------------
+PRODUCTS
+Create a new product: CentOS
+Select the daily sync plan
+
+New Repo: CentOS7 base
+Type: yum
+Arch: x86_64
+URL: http://mirror.centos.org/centos/7/os/x86_64/
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
+
+New Repo: CentOS7 extras
+Type: yum
+Arch: x86_64
+URL: http://mirror.centos.org/centos/7/extras/x86_64/
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
+
+New Repo: CentOS7 updates
+Type: yum
+Arch: x86_64
+URL: http://mirror.centos.org/centos/7/updates/x86_64/
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
+
+Create a new product: Epel
+Select the daily sync plan
+
+New Repo: Epel7
+Type: yum
+Arch: x86_64
+URL: http://download.fedoraproject.org/pub/epel/7/x86_64/
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
+
+Create a new product: Katello Client
+Select the daily sync plan
+
+New Repo: Katello Client 3.7
+Type: yum
+Arch: x86_64
+URL: https://fedorapeople.org/groups/katello/releases/yum/3.7/client/el7/x86_64
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
+
+Create a new product: Puppet
+Select the daily sync plan
+
+New Repo: Puppet PC1
+Type: yum
+Arch: x86_64
+URL: http://yum.puppetlabs.com/el/7/PC1/x86_64
+Verify ssl: disable
+Policy: on demand
+Mirror on sync: yes
+Publish via http
 
 
 
+-----------------------------------------------------
+CONTENT VIEW
+Create a CentOS7 content view with all the repos
+Publish
+
+
+-----------------------------------------------------
+ACTIVATION KEY
+Create Activation key CentOS7
+Select Library e CV CentOS7
+
+-----------------------------------------------------
+SYNC CONTENT
+Go to sync status and sync all
+
+-----------------------------------------------------
+INSTALLATION MEDIA
+Create: CentOS7 local
+URL: http://foreman.ext.lab/pulp/repos/RLabs/Library/CentOS7/custom/CentOS/CentOS7_base/
+
+
+-----------------------------------------------------
+GLOBAL PARAMETERS
+disable-firewall true
+enable-puppetlabs-pc1-repo true
+http-proxy proxy.ext.lab
+http-proxy-port 3128
+kt_activation_keys CentOS7
+selinux-mode disabled
+runinterval 600
+
+
+
+
+-----------------------------------------------------
 OPERATING SYSTEMS
+CentOS
+Assign partition tables
+Install Media: centos mirror
 
+-----------------------------------------------------
 
 COMPUTE RESOURCES
 
+
+
+-----------------------------------------------------
 COMPUTE PROFILES
 
+-----------------------------------------------------
+Puppet content:
+cd /etc/puppetlabs/code/environments/production/modules
+git clone http://github.com/andreramoni/puppet-rbaselines rbaselines
+import to foreman
+
+-----------------------------------------------------
 HOSTGROUPS
 
 
