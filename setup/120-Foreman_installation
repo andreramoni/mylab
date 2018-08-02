@@ -10,7 +10,7 @@ VM:
 
 - Use nmtui to configure the network as follow:
   Static 192.168.12.50 on first network. Name it ext.
-  Static 10.255.0.254 on second network. Name it mgmt.
+  Static 10.255.0.2 on second network. Name it prov.
   Set the hostname to foreman.ext.lab
 
 - Reboot
