@@ -70,21 +70,15 @@ foreman-installer --scenario katello \
   --enable-foreman-plugin-default-hostgroup \
   --enable-foreman-plugin-remote-execution \
   --enable-foreman-proxy-plugin-remote-execution-ssh \
-  --foreman-initial-location HomeLab \
-  --foreman-initial-organization RLabs
-
-foreman-installer \
-  --enable-foreman-proxy \
+  --foreman-locations-enabled=false \
+  --foreman-initial-organization RLabs \
   --foreman-proxy-tftp=true \
   --foreman-proxy-tftp-servername=10.255.0.2 \
   --foreman-proxy-dhcp=true \
   --foreman-proxy-dhcp-interface=ens224 \
   --foreman-proxy-dhcp-gateway=10.255.0.1 \
   --foreman-proxy-dhcp-nameservers="192.168.12.2" \
-  --foreman-proxy-dns=false \
-  --foreman-proxy-content-parent-fqdn=https://katello.ext.lab \
-  --foreman-proxy-oauth-consumer-key=NtRN6s2xWrBsntaBgsjCXt8CWY8PJCLD \
-  --foreman-proxy-oauth-consumer-secret=bGBWZWDfxVvWTqWF2T8SMRkZDihcNiow
+  --foreman-proxy-dns=false
 
 - Take a snapshot and name it "Foreman installed"
 
