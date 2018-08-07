@@ -32,7 +32,8 @@ OPT between Foreman or Katello and follow respective instructions bellow
 FOREMAN INSTALL:
 
 KATELLO NIGHTLY INSTALL:  
-https://theforeman.org/manuals/nightly/index.html#2.Quickstart
+https://theforeman.org/plugins/katello/nightly/installation/index.html
+
 
 Create a file with:
 
