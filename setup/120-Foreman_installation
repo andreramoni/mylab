@@ -30,25 +30,10 @@ OPT between Foreman or Katello and follow respective instructions bellow
 
 
 FOREMAN INSTALL:
-- Go to www.theforeman.org, click on get started and follow the steps.
-- First step is to install puppet repo
-- Second is the epel repo
-- Third is the foreman repo
-- Fourth is the foreman installer
-- Run foreman-installer non-interactive mode just setting the initial password
-  time foreman-installer --foreman-admin-password adminadmin
-  (it should take around 6 minutes)
 
-KATELLO 3.6 INSTALL:  
-- Install all repos:
-  yum -y localinstall http://fedorapeople.org/groups/katello/releases/yum/3.6/katello/el7/x86_64/katello-repos-latest.rpm
-  yum -y localinstall http://yum.theforeman.org/releases/1.17/el7/x86_64/foreman-release.rpm
-  yum -y install https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
-  yum -y localinstall http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  yum -y install foreman-release-scl python-django
+KATELLO NIGHTLY INSTALL:  
+https://theforeman.org/manuals/nightly/index.html
 
-- Install katello:
-  yum -y install katello
 
 Create a file with:
 
