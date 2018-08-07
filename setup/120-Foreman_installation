@@ -34,6 +34,9 @@ FOREMAN INSTALL:
 KATELLO NIGHTLY INSTALL:  
 https://theforeman.org/plugins/katello/nightly/installation/index.html
 
+If using katello nightly as I use *for testing*,
+cd /etc/yum.repos.d && sed -i s/gpgcheck=1/gpgcheck=0/g *
+
 
 Create a file with:
 
