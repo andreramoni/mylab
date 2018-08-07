@@ -5,9 +5,9 @@ But since it´s my own home network, we need to organize IP ranges.<br>
 Let´s call my home network as the TRANSITos EXTERNAL Network.<br>
 
 ---
-EXTERNAL/TRANSIT Network:
+EXTERNAL Network:
 - Network: 192.168.12.0/24 (netmask 255.255.255.0)
-- Gateway: 192.168.12.1
+- Gateway: 192.168.12.1 (my router)
 - DNS: 192.168.12.2
 
 
@@ -33,9 +33,6 @@ LAB core services:
 - 192.168.12.50: foreman.ext.lab
 
 Internal networks:
-- 10.255.0.0/16: mgmt.lab - Management and provisioning
-- 10.0.0.0/16: srv.lab - Internal services
-- 10.1.0.0/16: dmz1.lab - First DMZ network  (outside connections)
-- 10.2.0.0/16: dmz2.lab - Second DMZ network (inside scope)
+- 10.255.0.0/16: prov.lab - Provisioning
 
 The firewalls will use last octect as 2 and 3, and 1 for the VIP on each network.
