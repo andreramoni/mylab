@@ -63,6 +63,14 @@ foreman-installer --scenario katello \
   --foreman-proxy-dhcp-range="10.255.10.1 10.255.100.254" \
   --foreman-proxy-dns=false
 
+(in the nightly build at this date, I needed to run it twice because the first run returned some errors, but the second one finished ok)
+
+About organizations and locations:
+I still don´t like them. But maybe it´s because I starteusing foreman without katello. I still prefer to not use locations and organizations even when managind several datacenter and/or cloud. But we can only disable location, its not possible to disable organization.
+
+ 
+
+
 - Take a snapshot and name it "Foreman installed"
 
 - Make puppet autosign all certificates:
