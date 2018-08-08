@@ -4,7 +4,8 @@ FOREMAN WEB INTERFACE:
 Administar -> Settings -> Puppet
   Puppet server: foreman.ext.lab
 
-
+Hammer:
+https://www.lisenet.com/2018/katello-create-products-repositories-content-views-lifecycle-environments-activation-keys/
 -----------------------------------------------------
 DOMAINS:
 Filter by any organization and configure the ext.lab domain to RLabs
