@@ -56,6 +56,9 @@ PRODUCTS
 Create a new product: CentOS
 Select the daily sync plan
 
+hammer product create --name "CentOS7" --organization "RLabs"
+
+
 New Repo: CentOS7 base
 Type: yum
 Arch: x86_64
@@ -64,6 +67,13 @@ Verify ssl: disable
 Policy: on demand
 Mirror on sync: yes
 Publish via http
+
+hammer repository create --product="CentOS7" \
+  --content-type="yum" --name "CentOS7 base" \
+  --url "http://mirror.centos.org/centos/7/os/x86_64" \
+  --download-policy "on_demand" --organization "RLabs"
+
+
 
 New Repo: CentOS7 extras
 Type: yum
