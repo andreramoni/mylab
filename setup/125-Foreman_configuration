@@ -41,6 +41,17 @@ Boot mode: DHCP
 Domain tab: ext.lab
 Proxy tab: foreman.ext.lab
 
+Example with hammer:
+hammer subnet create \
+  --name "teste01" \
+  --network "10.9.9.0" \
+  --mask "255.255.255.0" \
+  --gateway "10.9.9.1" \
+  --boot-mode "Static" \
+  --domain-ids "1,2,3,4,5,6,7,8" \
+  --dns-primary "10.10.2.11" \
+  --dns-secondary "10.10.2.12"
+
 
 -----------------------------------------------------
 PARTITION TABLES
