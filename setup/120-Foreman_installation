@@ -68,7 +68,8 @@ About organizations and locations:
 I still don´t like them. But maybe it´s because I starteusing foreman without katello. I still prefer to not use locations and organizations even when managind several datacenter and/or cloud. But we can only disable location, its not possible to disable organization.
 
  
-
+- Run puppet agent
+. /etc/profile && puppet agent -t
 
 - Take a snapshot and name it "Foreman installed"
 
