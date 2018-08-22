@@ -55,7 +55,7 @@ To: 10.255.100.254
 Boot mode: DHCP
 Domain tab: ext.lab
 Proxy tab: foreman.ext.lab
-i
+
 hammer domain create --name "prov.lab" --organizations "RLabs" 
 
 hammer subnet create \
@@ -75,7 +75,7 @@ hammer subnet create \
 -----------------------------------------------------
 PARTITION TABLES
 Import partition tables.
-Associate with CetOS operating system
+Associate with CentOS operating system
 
 
 -----------------------------------------------------
