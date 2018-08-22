@@ -2,22 +2,25 @@
 The lab environment is behind a router that is connected to the Internet.<br>
 But since it´s my own home network, we need to organize IP ranges.<br>
 
-Let´s call my home network as the TRANSITos EXTERNAL Network.<br>
+Let´s call my(internal)  home network as the EXTERNAL LAB Network.<br>
 
 ---
 EXTERNAL Network:
 - Network: 192.168.12.0/24 (netmask 255.255.255.0)
 - Gateway: 192.168.12.1 (my router)
-- DNS: 192.168.12.2
+- DNS: 1.1.1.1 and 8.8.4.4 (but the lab won't use that)
 
 
-We´ll use this external network as follow:
 
-- 192.168.12.2-19: Basic services, DNS, Jumpboxes etc 
-- 192.168.12.20-29: ESXi hosts
-- 192.168.12.30-49: VMware appliances
-- 192.168.12.50-99: Lab fixed services
-- 192.168.12.100-199: Misc 
+We'll segment this external network as follow:
+
+- 192.168.12.2-29: Basic services like DNS, Jumpboxes etc 
+- 192.168.12.29-39: VMware stuff (esxi hosts, vcenter, vrealize etc)
+- 192.168.12.40-59: RLabs-prod Core services that needs to exists before the lab firewall (Foreman, DNS, Proxy, Jumpboxes)
+- 192.168.12.60-99: RLabs-prod firewall and nat addresses
+- 192.168.12.100-129: Misc tests that should use the external network (ip allocation managed by foreman)
+- 192.168.12.130-139: RLabs-dev. Katello-nightly and provisioning tests
+- 192.168.12.140-199: Free
 - 192.168.12.200-254: DHCP range used by my home devices
 
 
