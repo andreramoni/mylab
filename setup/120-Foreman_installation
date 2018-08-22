@@ -1,16 +1,16 @@
 VCENTER:
 - Deploy a VM from CentOS7 template
 - Name it foreman.ext.lab
-- Edit the VM and set vcpus to 4 and 6Gb of ram
-- Add another NIC on mgmt network
+- Edit the VM and set vcpus to 4 and 8Gb of ram
+- Add another NIC on prov1 network
 - Power on
 
 VM:
 - Logon onto the  vm
 
 - Use nmtui to configure the network as follow:
-  Static 192.168.12.50 on first network. Name it ext.
-  Static 10.255.0.2 on second network. Name it prov.
+  Static 192.168.12.50/24 on first network. Name it ext.
+  Static 10.255.0.1/24 on second network. Name it prov.
   Set the hostname to foreman.ext.lab
 
 - Reboot
@@ -18,7 +18,6 @@ VM:
 
 - Log into the VM and apply:
   echo "192.168.12.50 foreman.ext.lab foreman" >> /etc/hosts
-  cd /etc/sysconfig/network-scripts ; mv ifcfg-ens192 ifcfg-ext
 
 
 - Reboot
@@ -55,7 +54,7 @@ foreman-installer --scenario katello \
   --foreman-locations-enabled=false \
   --foreman-initial-organization RLabs \
   --foreman-proxy-tftp=true \
-  --foreman-proxy-tftp-servername=10.255.0.2 \
+  --foreman-proxy-tftp-servername=10.255.0.1 \
   --foreman-proxy-dhcp=true \
   --foreman-proxy-dhcp-interface=ens224 \
   --foreman-proxy-dhcp-gateway=10.255.0.1 \
