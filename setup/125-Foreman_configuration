@@ -11,6 +11,7 @@ DOMAINS:
 Filter by any organization and configure the ext.lab domain to RLabs
 Create domain prov.lab
 
+hammer domain update --name "ext.lab" --organizations "RLabs"
 
 -----------------------------------------------------
 NETWORKS:
@@ -23,13 +24,27 @@ Gateway: 192.168.12.1
 DNS: 192.168.12.2
 IPAM: Internal DB
 From: 192.168.12.100
-To: 192.168.12.199
+To: 192.168.12.149
 MTU: 1500
 Boot mode: Static
 Domain tab: ext.lab
 
+Example with hammer:
+hammer subnet create \
+  --name "ext.lab" \
+  --network "192.168.12.0" \
+  --mask "255.255.255.0" \
+  --gateway "192.168.12.1" \
+  --boot-mode "Static" \
+  --from "192.168.12.100" \
+  --to "192.168.12.149" \
+  --domains "ext.lab" \
+  --dns-primary "192.168.12.2" \
+  --ipam "Internal DB" \
+  --organizations "RLabs"
+
 Create the PROV network:
-Name: prov
+Name: prov.lab
 Address: 10.255.0.0
 Prefix: 16
 Mask: 255.255.0.0
@@ -40,16 +55,21 @@ To: 10.255.100.254
 Boot mode: DHCP
 Domain tab: ext.lab
 Proxy tab: foreman.ext.lab
+i
+hammer domain create --name "prov.lab" --organizations "RLabs" 
 
-Example with hammer:
 hammer subnet create \
-  --name "ext.lab" \
-  --network "192.168.12.0" \
-  --mask "255.255.255.0" \
-  --gateway "192.168.12.1" \
-  --boot-mode "Static" \
-  --domain-ids "1" \
-  --dns-primary "192.168.12.2" \
+  --name "prov.lab" \
+  --network "10.255.0.0" \
+  --mask "255.255.0.0" \
+  --gateway "10.255.0.1" \
+  --boot-mode "DHCP" \
+  --from "10.255.10.1" \
+  --to "10.255.100.254" \
+  --domains "prov.lab" \
+  --ipam "DHCP" \
+  --organizations "RLabs"
+
 
 
 -----------------------------------------------------
