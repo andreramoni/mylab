@@ -202,7 +202,13 @@ hammer repository create --product="CentOS7" \
 -----------------------------------------------------
 CONTENT VIEW
 Create a CentOS7 content view with all the repos
+
+hammer content-view create --name "CentOS7" --organization "RLabs"  --product "CentOS7" --product "CentOS7" --repositories "CentOS7 base,CentOS7 extras,CentOS7 updates,Epel 7,Katello Client 3.8,Puppet 4 PC1"
+
+
 Publish
+
+hammer content-view publish --name "CentOS7" --organization "RLabs"
 
 
 
@@ -211,9 +217,14 @@ ACTIVATION KEY
 Create Activation key CentOS7
 Select Library e CV CentOS7
 Subscriptions: add products
+
+hammer activation-key create --content-view "CentOS7" --name "CentOS7" --organization "RLabs"
+
+
 -----------------------------------------------------
 SYNC CONTENT
 Go to sync status and sync all
+## hammer repository synchronize --product "CentOS7" --async  --organization "RLabs" --name 'Epel 7'
 
 -----------------------------------------------------
 INSTALLATION MEDIA
