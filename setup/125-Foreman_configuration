@@ -141,7 +141,7 @@ hammer repository create --product="CentOS7" \
 Create a new product: Epel
 Select the daily sync plan
 
-hammer product create --name "Epel" --organization "RLabs" --sync-plan 'Daily'
+#hammer product create --name "Epel" --organization "RLabs" --sync-plan 'Daily'
 
 
 New Repo: Epel7
@@ -153,7 +153,7 @@ Policy: on demand
 Mirror on sync: yes
 Publish via http
 
-hammer repository create --product="Epel" \
+hammer repository create --product="CentOS7" \
   --content-type="yum" --name "Epel 7" \
   --url "http://download.fedoraproject.org/pub/epel/7/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
@@ -161,7 +161,7 @@ hammer repository create --product="Epel" \
 Create a new product: Katello Client
 Select the daily sync plan
 
-hammer product create --name "Katello Client" --organization "RLabs" --sync-plan 'Daily'
+#hammer product create --name "Katello Client" --organization "RLabs" --sync-plan 'Daily'
 
 
 
@@ -174,8 +174,15 @@ Policy: on demand
 Mirror on sync: yes
 Publish via http
 
+hammer repository create --product="CentOS7" \
+  --content-type="yum" --name "Katello Client 3.8" \
+  --url "https://fedorapeople.org/groups/katello/releases/yum/3.8/client/el7/x86_64" \
+  --download-policy "on_demand" --organization "RLabs"
+
 Create a new product: Puppet
 Select the daily sync plan
+
+#hammer product create --name "Puppet" --organization "RLabs" --sync-plan 'Daily'
 
 New Repo: Puppet PC1
 Type: yum
@@ -186,12 +193,17 @@ Policy: on demand
 Mirror on sync: yes
 Publish via http
 
+hammer repository create --product="CentOS7" \
+  --content-type="yum" --name "Puppet 4 PC1" \
+  --url "http://yum.puppetlabs.com/el/7/PC1/x86_64" \
+  --download-policy "on_demand" --organization "RLabs"
 
 
 -----------------------------------------------------
 CONTENT VIEW
 Create a CentOS7 content view with all the repos
 Publish
+
 
 
 -----------------------------------------------------
