@@ -108,12 +108,11 @@ hammer medium create --organization "RLabs" --os-family "Redhat" --name "CentOS 
 
 hammer global-parameter set --name "disable-firewall" --value "true"
 hammer global-parameter set --name "enable-puppetlabs-pc1-repo" --value "true"
-hammer global-parameter set --name "http-proxy" --value "proxy.ext.lab"
-hammer global-parameter set --name "http-proxy-port" --value "3128"
 hammer global-parameter set --name "kt_activation_keys" --value "CentOS7"
 hammer global-parameter set --name "selinux-mode" --value "disabled"
 hammer global-parameter set --name "runinterval" --value "600"
 
 
-
+hammer location set-parameter --location "Home" --name "http-proxy" --value "proxy.ext.home.lab"
+hammer location set-parameter --location "Home" --name "http-proxy-port" --value "3128"
  
