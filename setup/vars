@@ -1,0 +1,41 @@
+# Basic stuff:
+export TLD="lab"
+export ORGANIZATION="RLabs"
+export LOCATION="dc1"
+export KATELLO_VERSION="3.8"
+
+# External network from the lab perspective
+export EXT_SUBDOMAIN="ext"
+export EXT_DOMAIN="${EXT_SUBDOMAIN}.${LOCATION}.${TLD}"
+export EXT_NETWORK_NAME="${EXT_DOMAIN}"
+export EXT_NETWORK_ADDRESS="192.168.12.0"
+export EXT_NETWORK_NETMASK="255.255.255.0"
+export EXT_NETWORK_GATEWAY="192.168.12.1"
+export EXT_NETWORK_RANGE_FROM="192.168.12.100"
+export EXT_NETWORK_RANGE_TO="192.168.12.149"
+export EXT_NETWORK_DNS1="192.168.12.2"
+
+# Local provisioning network 
+export PROV_SUBDOMAIN="prov"
+export PROV_DOMAIN="${PROV_SUBDOMAIN}.${LOCATION}.${TLD}"
+export PROV_NETWORK_NAME="${PROV_DOMAIN}"
+export PROV_NETWORK_ADDRESS="10.255.0.0"
+export PROV_NETWORK_NETMASK="255.255.0.0"
+export PROV_NETWORK_GATEWAY="10.255.0.1"
+export PROV_NETWORK_RANGE_FROM="10.255.10.1"
+export PROV_NETWORK_RANGE_TO="10.255.255.254"
+export PROV_NETWORK_DNS1="${EXT_NETWORK_DNS1}"
+
+# Compute resource:
+export COMPUTE_RESOURCE_NAME="${LOCATION}"
+export COMPUTE_RESOURCE_PROVIDER="Vmware"
+export COMPUTE_RESOURCE_SERVER="vcenter.ext.lab"
+export COMPUTE_RESOURCE_USER="administrator"
+export COMPUTE_RESOURCE_PASSWORD="#RLabs123"
+export COMPUTE_RESOURCE_DATACENTER="RLabsiDC1"
+
+# General
+export FOREMAN_HOSTNAME="foreman.${EXT_DOMAIN}"
+export PROXY="proxy.${EXT_DOMAIN}"
+export PROXY_PORT="3128"
+
