@@ -44,7 +44,6 @@ hammer repository create --product="CentOS7" \
   --url "http://mirror.centos.org/centos/7/os/x86_64" \
   --download-policy "on_demand" --organization "RLabs" 
 
-hammer repository synchronize --name "CentOS7 base" --product "CentOS7" --organization "RLabs"
 
 
 hammer repository create --product="CentOS7" \
@@ -52,14 +51,12 @@ hammer repository create --product="CentOS7" \
   --url "http://mirror.centos.org/centos/7/extras/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
 
-hammer repository synchronize --name "CentOS7 extras" --product "CentOS7" --organization "RLabs"
 
 hammer repository create --product="CentOS7" \
   --content-type="yum" --name "CentOS7 updates" \
   --url "http://mirror.centos.org/centos/7/updates/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
 
-hammer repository synchronize --name "CentOS7 updates" --product "CentOS7" --organization "RLabs"
 
 
 hammer repository create --product="CentOS7" \
@@ -67,28 +64,14 @@ hammer repository create --product="CentOS7" \
   --url "http://download.fedoraproject.org/pub/epel/7/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
 
-Create a new product: Katello Client
-Select the daily sync plan
-
-#hammer product create --name "Katello Client" --organization "RLabs" --sync-plan 'Daily'
 
 
-
-New Repo: Katello Client 3.7
-Type: yum
-Arch: x86_64
-URL: https://fedorapeople.org/groups/katello/releases/yum/3.7/client/el7/x86_64
-Verify ssl: disable
-Policy: on demand
-Mirror on sync: yes
-Publish via http
 
 hammer repository create --product="CentOS7" \
   --content-type="yum" --name "Katello Client 3.8" \
   --url "https://fedorapeople.org/groups/katello/releases/yum/3.8/client/el7/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
 
-hammer repository synchronize --name "Katello Client 3.8" --product "CentOS7" --organization "RLabs"
 
 
 hammer repository create --product="CentOS7" \
@@ -96,7 +79,20 @@ hammer repository create --product="CentOS7" \
   --url "http://yum.puppetlabs.com/el/7/PC1/x86_64" \
   --download-policy "on_demand" --organization "RLabs"
 
+
+
+
+
+hammer repository synchronize --name "CentOS7 base" --product "CentOS7" --organization "RLabs"
+
+hammer repository synchronize --name "CentOS7 extras" --product "CentOS7" --organization "RLabs"
+hammer repository synchronize --name "CentOS7 updates" --product "CentOS7" --organization "RLabs"
+hammer repository synchronize --name "Katello Client 3.8" --product "CentOS7" --organization "RLabs"
+hammer repository synchronize --name "Epel 7" --product "CentOS7" --organization "RLabs"
 hammer repository synchronize --name "Puppet 4 PC1" --product "CentOS7" --organization "RLabs"
+
+
+
 
 hammer content-view create --name "CentOS7" --organization "RLabs"  --product "CentOS7" --product "CentOS7" --repositories "CentOS7 base,CentOS7 extras,CentOS7 updates,Epel 7,Katello Client 3.8,Puppet 4 PC1"
 
