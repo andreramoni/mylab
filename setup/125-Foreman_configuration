@@ -11,7 +11,7 @@ DOMAINS:
 Filter by any organization and configure the ext.lab domain to RLabs
 Create domain prov.lab
 
-hammer domain update --name "ext.lab" --organizations "RLabs"
+hammer domain update --name "ext.home.lab" --organizations "RLabs" --locations "Home"
 
 -----------------------------------------------------
 NETWORKS:
@@ -38,10 +38,11 @@ hammer subnet create \
   --boot-mode "Static" \
   --from "192.168.12.100" \
   --to "192.168.12.149" \
-  --domains "ext.lab" \
+  --domains "ext.home.lab" \
   --dns-primary "192.168.12.2" \
   --ipam "Internal DB" \
-  --organizations "RLabs"
+  --organizations "RLabs" \
+  --locations "Home"
 
 Create the PROV network:
 Name: prov.lab
@@ -56,7 +57,7 @@ Boot mode: DHCP
 Domain tab: ext.lab
 Proxy tab: foreman.ext.lab
 
-hammer domain create --name "prov.lab" --organizations "RLabs" 
+hammer domain create --name "prov.home.lab" --organizations "RLabs" --locations "Home"
 
 hammer subnet create \
   --name "prov.lab" \
@@ -68,7 +69,8 @@ hammer subnet create \
   --to "10.255.100.254" \
   --domains "prov.lab" \
   --ipam "DHCP" \
-  --organizations "RLabs"
+  --organizations "RLabs" \
+  --locations Home
 
 
 
@@ -82,7 +84,7 @@ Associate with CentOS operating system
 SYNC PLAN
 Create a daily sync plan
 
-hammer sync-plan create --interval 'daily' --name 'Daily' --enabled 'yes'  --organization 'RLabs' --sync-date "`date -I`"
+hammer sync-plan create --interval 'daily' --name 'Daily' --enabled 'yes'  --organization 'RLabs' --sync-date "`date -I`" 
 
 
 -----------------------------------------------------
@@ -105,7 +107,7 @@ Publish via http
 hammer repository create --product="CentOS7" \
   --content-type="yum" --name "CentOS7 base" \
   --url "http://mirror.centos.org/centos/7/os/x86_64" \
-  --download-policy "on_demand" --organization "RLabs"
+  --download-policy "on_demand" --organization "RLabs" 
 
 
 
