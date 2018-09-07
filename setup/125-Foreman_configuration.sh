@@ -41,7 +41,7 @@ hammer subnet create \
   --domains "${PROV_DOMAIN}" \
   --ipam "DHCP" \
   --organizations "${ORGANIZATION}" \
-  --locations "${LOCATION} 
+  --locations "${LOCATION}" 
 
 #############################
 echo -n "* [sync-plan create: Daily] "
@@ -86,7 +86,7 @@ echo -n "* [repository create: CentOS7|Puppet 4 PC1] "
 hammer repository create --product="CentOS7" \
   --content-type="yum" --name "Puppet 4 PC1" \
   --url "http://yum.puppetlabs.com/el/7/PC1/x86_64" \
-  --download-policy "on_demand" --organization "${KATELLO_VERSION}"
+  --download-policy "on_demand" --organization "${ORGANIZATION}"
 
 #############################
 echo -n "* [repository synchronize: CentOS7 base] "
@@ -149,9 +149,9 @@ hammer global-parameter set --name "runinterval" --value "600"
 
 #############################
 echo -n "* [location set-parameter: http-proxy=${PROXY}] "
-hammer location set-parameter --location "Home" --name "http-proxy" --value "${PROXY}"
+hammer location set-parameter --location "${LOCATION}" --name "http-proxy" --value "${PROXY}"
 echo -n "* [location set-parameter: http-proxy-port=${PROXY_PORT}] "
-hammer location set-parameter --location "Home" --name "http-proxy-port" --value "${PROXY_PORT}"
+hammer location set-parameter --location "${LOCATION}" --name "http-proxy-port" --value "${PROXY_PORT}"
 
 
 #############################
