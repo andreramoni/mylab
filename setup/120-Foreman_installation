@@ -17,7 +17,7 @@ VM:
   reboot 
 
 - Log into the VM and apply:
-  echo "192.168.12.50 foreman.ext.lab foreman" >> /etc/hosts
+  echo "192.168.12.30 foreman.ext.dc1.lab foreman" >> /etc/hosts
 
 
 - Reboot
@@ -56,7 +56,7 @@ foreman-installer --scenario katello \
   --enable-foreman-compute-gce \
   --enable-foreman-plugin-remote-execution \
   --enable-foreman-proxy-plugin-remote-execution-ssh \
-  --foreman-initial-location Home \
+  --foreman-initial-location dc1 \
   --foreman-initial-organization RLabs \
   --foreman-proxy-tftp=true \
   --foreman-proxy-tftp-servername=10.255.0.1 \
@@ -64,7 +64,7 @@ foreman-installer --scenario katello \
   --foreman-proxy-dhcp-interface=ens224 \
   --foreman-proxy-dhcp-gateway=10.255.0.1 \
   --foreman-proxy-dhcp-nameservers="192.168.12.2" \
-  --foreman-proxy-dhcp-range="10.255.10.1 10.255.100.254" \
+  --foreman-proxy-dhcp-range="10.255.100.1 10.255.255.254" \
   --foreman-proxy-dns=false
 
 (in the nightly build at this date, I needed to run it twice because the first run returned some errors, but the second one finished ok)
