@@ -1,5 +1,16 @@
-- Install a CentOS on a VM.
+Create a VM called CentOS75 for example.
+- 1vcpu, 2gb of ram
+- minimum 10gb of disk
+- Use the minimal centos install image
+- Scsi controller: paravirtual
+
+Installation options:
+- Install CentOS
+- Configure your partition model
+- Timezone: Etc/UTC. ntp servers: pool.ntp.org
+- Disable kdump
 - Let the network use dhcp
+- Do the minimal install
 
 
 Login and do the follow:
@@ -12,17 +23,19 @@ Login and do the follow:
 - Disable SELinux
   sed -i s/SELINUX=.*/SELINUX=disabled/ /etc/selinux/config
 
-- Edit /etc/hosts
-  echo "172.0.0.1 centos.localdomain centos" >> /etc/hosts
+- Disable UseDNS on sshd
+  echo "UseDNS no" >> /etc/ssh/sshd_config
 
 - Update the system
   yum upgrade -y
 
-- Disable UseDNS on sshd
-  echo "UseDNS no" >> /etc/ssh/sshd_config
-
 - Install basic packages
-  yum install -y net-tools bind-utils git open-vm-tools bash-completion bash-completion-extras vim-enhanced telnet nc wget
+  yum install -y net-tools bind-utils open-vm-tools bash-completion bash-completion-extras vim-enhanced telnet nc wget
+
+
+- Insert foreman callback (just if you will use this template in foreman):
+echo "wget -q -O /dev/null --no-check-certificate https://foreman/built &" >> /etc/rc.local
+chmod +x /etc/rc.d/rc.local
 
 - Shutdown
   sync; halt
