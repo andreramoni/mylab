@@ -148,10 +148,10 @@ echo -n "* [global-parameter set: runinteral=600] "
 hammer global-parameter set --name "runinterval" --value "600"
 
 #############################
-echo -n "* [location set-parameter: http-proxy=${PROXY}] "
-hammer location set-parameter --location "${LOCATION}" --name "http-proxy" --value "${PROXY}"
-echo -n "* [location set-parameter: http-proxy-port=${PROXY_PORT}] "
-hammer location set-parameter --location "${LOCATION}" --name "http-proxy-port" --value "${PROXY_PORT}"
+#echo -n "* [location set-parameter: http-proxy=${PROXY}] "
+#hammer location set-parameter --location "${LOCATION}" --name "http-proxy" --value "${PROXY}"
+#echo -n "* [location set-parameter: http-proxy-port=${PROXY_PORT}] "
+#hammer location set-parameter --location "${LOCATION}" --name "http-proxy-port" --value "${PROXY_PORT}"
 
 
 #############################
